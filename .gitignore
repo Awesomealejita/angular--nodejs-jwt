@@ -1,0 +1,4 @@
+__pycache__/
+storage/outgoing/
+storage/templates/
+*.log
