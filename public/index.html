@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Envío masivo a mutuas</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <header>
+      <h1>Automatiza el envío de plantillas Word</h1>
+      <p>Sube tu plantilla .docx, añade los datos de cada mutua y genera los documentos listos para enviar.</p>
+    </header>
+
+    <section class="card">
+      <h2>1. Sube una plantilla</h2>
+      <form id="upload-form">
+        <label class="file-input">
+          <span>Selecciona un archivo .docx</span>
+          <input type="file" id="template-file" name="file" accept=".docx" required />
+        </label>
+        <button type="submit">Subir plantilla</button>
+        <p class="help">Usa marcadores en tu documento: <code>{{MUTUA}}</code>, <code>{{CONTACTO}}</code>, <code>{{REFERENCIA}}</code>, <code>{{FECHA}}</code>, <code>{{IMPORTE}}</code> y <code>{{DESCRIPCION}}</code>.</p>
+      </form>
+      <div id="upload-status" class="status"></div>
+    </section>
+
+    <section class="card">
+      <h2>2. Selecciona plantilla y mutuas</h2>
+      <div class="grid">
+        <div>
+          <label for="template-select">Plantilla</label>
+          <select id="template-select"></select>
+        </div>
+        <div class="mutua-form">
+          <label>Datos de la mutua</label>
+          <div class="mutua-fields">
+            <input type="text" id="mutua" placeholder="Mutua" />
+            <input type="email" id="email" placeholder="Correo" />
+            <input type="text" id="contacto" placeholder="Persona de contacto" />
+            <input type="text" id="referencia" placeholder="Referencia" />
+            <input type="text" id="fecha" placeholder="Fecha" />
+            <input type="text" id="importe" placeholder="Importe" />
+            <input type="text" id="descripcion" placeholder="Descripción" />
+          </div>
+          <button id="add-mutua" type="button">Añadir mutua</button>
+        </div>
+      </div>
+      <div>
+        <h3>Mutuas a procesar</h3>
+        <table id="mutuas-table">
+          <thead>
+            <tr>
+              <th>Mutua</th>
+              <th>Correo</th>
+              <th>Contacto</th>
+              <th>Referencia</th>
+              <th>Fecha</th>
+              <th>Importe</th>
+              <th>Descripción</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <button id="send-btn" type="button">Generar y enviar</button>
+      <div id="send-status" class="status"></div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
