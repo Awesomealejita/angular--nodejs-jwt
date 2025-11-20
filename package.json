@@ -1,0 +1,9 @@
+{
+  "name": "powerapps-solicitud-pago-preview",
+  "version": "1.0.0",
+  "description": "Vista previa HTML estática para la app de solicitud de pago a mutuas",
+  "license": "MIT",
+  "scripts": {
+    "preview": "node serve-preview.js"
+  }
+}
