@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vista previa – Solicitud de Pago a Mutuas</title>
+  <style>
+    :root {
+      --azul: #1c4c96;
+      --azul-suave: #f1f5fb;
+      --borde: #e3e8f0;
+      --texto: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--texto);
+    }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+    }
+
+    header {
+      background: linear-gradient(120deg, #1c4c96, #2e6dcc);
+      color: white;
+      padding: 24px;
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+      letter-spacing: 0.3px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--borde);
+      display: flex;
+      gap: 12px;
+      padding: 12px 18px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border: 1px solid var(--borde);
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: var(--azul-suave);
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    main {
+      padding: 24px;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    section.card {
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      padding: 18px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #0f1f3a;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      display: block;
+      margin: 10px 0 4px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      background: #fbfcff;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--azul);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(28, 76, 150, 0.25);
+    }
+
+    .muted {
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid var(--borde);
+      font-size: 14px;
+    }
+
+    th { background: var(--azul-suave); }
+
+    .tag { padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+    .tag.enviado { background: #e8f7ed; color: #176735; }
+    .tag.pendiente { background: #fff6e6; color: #ad6b06; }
+    .tag.error { background: #ffe7e7; color: #a01212; }
+
+    .template-preview {
+      border: 1px dashed var(--borde);
+      padding: 12px;
+      background: #fcfdff;
+      font-family: "Georgia", serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Solicitud de Pago a Mutuas – Vista previa</h1>
+    <p>Maqueta web para mostrar el front principal antes de construir la app en Power Apps.</p>
+  </header>
+
+  <nav>
+    <span class="pill">Nueva solicitud de pago</span>
+    <span class="pill">Historial de solicitudes</span>
+    <span class="pill">Plantillas configurables</span>
+    <span class="pill">Datos de anestesistas</span>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Formulario rápido</h2>
+      <p class="muted">Captura la información mínima para disparar el flujo de Power Automate.</p>
+      <div class="row">
+        <div>
+          <label>Mutua o centro</label>
+          <select>
+            <option>MutuaCare</option>
+            <option>SaludPlus</option>
+            <option>Clínica Mediterránea</option>
+          </select>
+        </div>
+        <div>
+          <label>Paciente</label>
+          <input placeholder="Ej: Ana López" />
+        </div>
+        <div>
+          <label>Fecha intervención</label>
+          <input type="date" value="2024-11-15" />
+        </div>
+        <div>
+          <label>Importe a reclamar</label>
+          <input type="number" value="850" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Anestesista</label>
+          <input placeholder="Nombre y apellidos" value="Dr. Carlos Iglesias" />
+        </div>
+        <div>
+          <label>NIF</label>
+          <input placeholder="00000000X" value="12345678Z" />
+        </div>
+        <div>
+          <label>Nº colegiado</label>
+          <input placeholder="12345" value="COL-9842" />
+        </div>
+      </div>
+      <label>Especialidad / tipo de cirugía</label>
+      <input placeholder="Artroscopia de rodilla" />
+      <label>Texto adicional</label>
+      <textarea placeholder="Incluir observaciones, complicaciones, tiempo extra, etc."></textarea>
+      <p class="muted">Adjuntos: parte quirúrgico, informe anestesia, justificantes (carga en Power Apps).</p>
+      <button class="button" aria-label="Guardar y enviar">Guardar y enviar</button>
+    </section>
+
+    <section class="card">
+      <h2>Plantilla HTML</h2>
+      <p class="muted">Vista previa con marcadores dinámicos reemplazables ({{Campo}}).</p>
+      <div class="template-preview">
+        <p><strong>Estimados {{NombreMutua}},</strong></p>
+        <p>Solicitamos el abono de honorarios por la intervención de {{Paciente}} realizada el {{Fecha}} en el área de {{Especialidad}}. El anestesista {{NombreAnestesista}} (NIF {{NIF}}) emite la siguiente reclamación por importe de <strong>{{Importe}} €</strong>.</p>
+        <p>Adjuntamos parte quirúrgico e informe anestésico. Para cualquier consulta, contacten con {{ContactoMutua}} en {{TelefonoMutua}}.</p>
+        <p>Atentamente,<br/>{{NombreAnestesista}}<br/>Colegiado {{Colegiado}}</p>
+      </div>
+      <div class="row">
+        <div>
+          <label>Encabezado</label>
+          <input value="Solicitud de pago intervención anestésica" />
+        </div>
+        <div>
+          <label>Asunto email</label>
+          <input value="Solicitud de pago – {{Paciente}} – {{Fecha}}" />
+        </div>
+      </div>
+      <button class="button" aria-label="Guardar plantilla">Guardar cambios</button>
+    </section>
+
+    <section class="card">
+      <h2>Historial de solicitudes</h2>
+      <p class="muted">Ejemplo de los registros almacenados en la lista SharePoint “HistorialSolicitudes”.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha envío</th>
+            <th>Mutua</th>
+            <th>Paciente</th>
+            <th>Importe</th>
+            <th>Estado</th>
+            <th>PDF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12/11/2024</td>
+            <td>MutuaCare</td>
+            <td>Ana López</td>
+            <td>850 €</td>
+            <td><span class="tag enviado">Enviado</span></td>
+            <td><a href="#">Descargar</a></td>
+          </tr>
+          <tr>
+            <td>10/11/2024</td>
+            <td>SaludPlus</td>
+            <td>Luis Pérez</td>
+            <td>620 €</td>
+            <td><span class="tag pendiente">Pendiente</span></td>
+            <td><a href="#">Descargar</a></td>
+          </tr>
+          <tr>
+            <td>05/11/2024</td>
+            <td>Clínica Mediterránea</td>
+            <td>Carmen Ruiz</td>
+            <td>1.050 €</td>
+            <td><span class="tag error">Error</span></td>
+            <td><a href="#">Reintentar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Datos de mutuas y anestesistas</h2>
+      <div class="grid">
+        <div>
+          <p class="muted">Mutuas y centros almacenados en la lista “Mutuas”.</p>
+          <table>
+            <thead>
+              <tr><th>Mutua</th><th>Contacto</th><th>Email</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>MutuaCare</td><td>María Gómez</td><td>recepcion@mutuacare.com</td></tr>
+              <tr><td>SaludPlus</td><td>Juan Ortega</td><td>pagos@saludplus.es</td></tr>
+              <tr><td>Clínica Mediterránea</td><td>Laura Serra</td><td>administracion@clinmed.es</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <p class="muted">Profesionales disponibles para autocompletar solicitudes.</p>
+          <table>
+            <thead>
+              <tr><th>Anestesista</th><th>NIF</th><th>Colegiado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Dr. Carlos Iglesias</td><td>12345678Z</td><td>COL-9842</td></tr>
+              <tr><td>Dra. Marta Ramos</td><td>98765432A</td><td>COL-5521</td></tr>
+              <tr><td>Dr. Álvaro Medina</td><td>11223344B</td><td>COL-7710</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Vista previa estática para compartir con stakeholders. Los datos y botones son demostrativos.
+  </footer>
+</body>
+</html>
